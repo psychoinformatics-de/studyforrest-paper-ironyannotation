@@ -1,0 +1,348 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{f1000_styles}
+\usepackage{units}
+\usepackage[colorlinks]{hyperref}
+\usepackage{url}
+\usepackage[sort,compress]{natbib}
+\usepackage{booktabs}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\begin{document}
+
+\input{results_def.tex}
+
+\title{Lies, irony, and contradiction — an annotation of semantic conflict in the movie ``Forrest Gump''}
+
+\author[1,2]{Michael~Hanke}
+\author[1]{Pierre~Ibe}
+
+\affil[1]{Psychoinformatics lab, Department of Psychology, University of Magdeburg, Universit\"{a}tsplatz 2, 39106 Magdeburg, Germany}
+\affil[2]{Center for Behavioral Brain Sciences, Magdeburg, Germany}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+% Abstracts should be up to 300 words and provide a succinct summary of the
+% article. Although the abstract should explain why the article might be
+% interesting, care should be taken not to inappropriately over-emphasise the
+% importance of the work described in the article. Citations should not be used
+% in the abstract, and the use of abbreviations should be minimized.
+
+  Here we extend the information on the structure of the core stimulus of the
+  studyforrest project (http://studyforrest.org) with a description of semantic
+  conflict in the ``Forrest Gump'' movie.  Three observers annotated the movie
+  independently regarding episodes with portrayal of lies, irony or sarcasm.
+  We present frequency statistics, and inter-observer reliability measures that
+  qualify and quantify semantic conflict in the stimulus.  While the number of
+  identified events is limited, this annotation nevertheless enriches the
+  knowledge about the complex high-level structure of this stimulus, and can
+  help to evalute its utility for future studies, and the usability of the
+  existing brain imaging data regarding this aspect of cognition.
+
+\end{abstract}
+
+\section*{Introduction}
+%The format of the main body of the article is flexible: it should be concise
+%and in the format most appropriate to displaying the content of the article.
+
+%A brief summary of how this work was motivated and how it links to existing
+%and future work.
+
+Detection of semantic conflict is an important cognitive skill for human social
+interaction. It is required to identify lies (false statements made with the
+intention to deceive) but also to correctly interpret stylistic devices — such
+as sarcasm and irony (statements with direct meaning that is the opposite
+\citep{AEH+03} or contrary \citep{Han2004} to the implied semantic content). As
+the interpretation of such events is highly context dependent, it is difficult
+to study how the brain processes these in the context of real-life like
+interactions in complex natural environments.
+
+In this study, we explored occurrences of semantic conflict in the core stimulus
+of the studyforrest project (\url{http://studyforrest.org}) — the motion picture
+``Forrest Gump'' — in order to evaluate whether the available brain imaging data
+\citep{HBI+14,HAK+16} can be readily used to study this aspect of cognition.
+We annotated the presence of contradictory statements, including lies and
+ironic statements, as well as the portrayal of cues, such as exaggeration or
+raised eyebrows, that are often associated with making ironic statements.
+Additionally, we recorded the context that allowed observers to classify an
+event as contradictory.
+
+Depending on the exact criterion used for identifying events across observers,
+we found only between \AggTwentyNEvents\ and \AggHundredNEvents\ occurrences of
+semantic conflict or portrayal of irony cues in the entire movie stimulus.
+These are likely insufficient numbers for an investigation based on these data
+alone. However, these new annotations nevertheless contribute to a more
+comprehensive description of this complex movie stimulus
+\citep{LRS+2015,HH2016} and may be useful as confound variables in subsequent
+studies.
+
+
+\section*{Materials and methods}
+
+\subsection*{Stimulus}
+
+The annotated stimulus was a slightly shortened ($\approx$\unit[2]{h}) version
+of the movie Forrest~Gump (R.~Zemeckis, Paramount Pictures, 1994), with a dubbed
+German soundtrack, and is identical to the audio-visual movie annotated in
+\cite{LRS+2015,HH2016}. Further details on this particular movie cut, and how
+to reproduce it from commercially available sources, are available in
+\cite{HAK+16}.
+
+\subsection*{Observers}
+
+Three observers (all female, age 19–20) independently annotated the movie. They
+were also involved in the development of the concept for this annotation.
+
+\subsection*{Procedure}
+
+Observers were instructed to watch the movie from beginning to end, replaying
+scenes as often as required, and to detect two types of events: 1) whenever a
+verbal statement is made that contradicts with either the immediate context or
+with the viewer's body-of-knowledge at this point in the movie, or 2) whenever
+one or more cues associated with irony (predefined list, see below) are
+portrayed. In either case, observers had to describe the event by specifying its
+properties via a number of variable settings in a spreadsheet. The software
+video player VLC (\url{http://www.videolan.org/vlc}) was used to watch and
+navigate through the movie.
+
+
+\section*{Data legend}
+
+For each annotated event, a total of 10 properties were recorded, each of which
+are described in the following sections.
+
+\paragraph{Start and end} The duration of each event is recorded in
+\texttt{start} and \texttt{end} as the number of seconds from movie start (no
+sub-second precision, due to limitations of the video player time display). The
+time-points correspond to the onset and offset of the respective evidence. Both
+times can be identical in the case of events with less than one second duration.
+For contradictory statements, the duration covers the time from the onset of
+evidence of a contradiction until the end of the statement.
+
+\paragraph{Sender and receiver} The identity of a character making a
+contradictory statement or portraying an irony cue is encoded in
+\texttt{sender} using character labels listed in \citep{LRS+2015}.
+In the case that the respective statement is directed to another present movie
+character, its identity is encoded in \texttt{receiver}.
+
+\paragraph{Evidence of a contradiction}
+
+The \texttt{contradiction} flag indicates the presence of a contradiction
+in an event (1:~present, 0:~absent). The variable \texttt{proof} qualifies
+if the current or previous events provide the viewer with information to allow
+the detection of this contradiction (see Table
+\ref{tab:annotationcodes}). If \texttt{proof} is empty, the movie itself does
+not contain such information (e.g. a common sense contradiction).
+
+\paragraph{Irony cues} The variable \texttt{cues} contains a space-separated
+list of labels for all irony cues present in a particular events. See Table
+\ref{tab:annotationcodes} for a description of all possible labels.
+
+\paragraph{Event category} The \texttt{category} variable classifies events
+into lies, ironic statements, and other events (value empty).
+
+\paragraph{Intention} Two more variables encode whether a contradiction was used
+deliberately and whether this was noticed by the receiver. The variable
+\texttt{intended} encodes the presence of evidence for deliberate use (1:~yes,
+0:~no). The variable is empty if there is no evidence for either case. The
+second variable \texttt{intention\_decoded} encodes, in the same way, whether a
+potential receiver noticed a deliberate ironic statement or lie.
+
+\begin{table*}
+  \centering
+  \begin{tabular}{lp{10cm}}
+    \toprule\\
+    \textbf{Code} & \textbf{Description} \\
+    \\\midrule\\
+    \textit{Cues}\\
+    RHETORICALQ & a statement that is or contains a rhetorical question \\
+    UNDERSTATEMENT & a fact is stated in a weakened manner \\
+    EXAGGERATION & a fact is overstated \\
+    LAUGH & a statement accompanied by laughter \\
+    RAISEDEYEBROW & character makes a statement while raising an eyebrow \\
+    EYEROLLING & character makes a statement while rolling his/her eyes \\
+    TEMPOCHANGE & a change of the speech tempo within a sentence or compared to previous sentences\\
+    TONECHANGE & a change of the tone, pitch, or volume within a sentence or compared to previous sentences \\
+    % AKA, the Christopher Walken effect ;-)
+    PAUSE & an intentionally placed (yet still unexpected) or unnatural pause within a sentence \\
+    \\\midrule\\
+    \textit{Contradiction proof}\\
+    IMMEDIATE & a statement that contradicts with information in the immediate context \\
+    PAST &  a statement that contradicts with previous actions or information given in the past\\
+    \\\midrule\\
+    \textit{Conflict category}\\
+    IRONY & an ironic statement (a statement with a direct meaning that is the opposite
+            or contrary to its implied semantic content)\\
+    LIE & a lie (a false statement made with the intention to deceive)\\
+    \\\bottomrule
+  \end{tabular}
+  \caption{Definitions for all annotation codes.}
+  \label{tab:annotationcodes}
+\end{table*}
+
+\subsection*{Dataset content}
+
+The released annotation are three, text-based, comma-separated-value (CSV)
+formatted tables (\texttt{data/o??.csv}), one for each observer.
+
+The source code for all descriptive statistics included in this paper is
+available in \texttt{code/descriptive\_stats.py} (Python script).
+
+\paragraph{Dataset 1.}
+CSV tables with of events of semantic conflict, and occurences of irony cues
+in the motion picture “Forrest Gump”.
+
+\paragraph{Dataset 2.}
+Python script to compute all descriptive statistics presented in the
+Data Note manuscript from the released annotations.
+
+\section*{Dataset validation}
+%Use section and subsection commands to organize your document. \LaTeX{}
+%handles all the formatting and numbering automatically. Use ref and label
+%commands for cross-references.
+
+%This section is not essential for Web Tool papers.
+%For Data Articles, no analysis of the data, results or conclusions should be
+%included and so this section should not be completed.
+
+
+We used an automated procedure to check the annotation records of individual
+observers for errors or potential problems. Observers submitted their
+annotations in tabular form to a script that generated a list of error and
+warning messages. Using this feedback, observers double-checked their
+annotations as often as necessary until no objective errors were found and all
+warning messages were confirmed to be false positives. The tests included, for
+example, plausibility of timing information (no end time before the respective
+start time) or the presence of unknown condition labels.
+
+In order to assess inter-observer agreement of annotations, we used a two-step
+approach. First, the temporal location of events depicting \textit{any}
+relevant property were determined by comparing annotation timing across
+observers. The columns in Table \ref{tab:validation} report agreement
+statistics for events defined by at least one, two, or all three observers
+recording an annotation for the same \texttt{sender} at the same time. In the
+case that individual observers reported events of different length, or with
+only partially overlapping duration, only the time-windows with the minimum
+number of observers reporting an event were considered.
+
+In the second step, we computed Fleiss' Kappa \citep{Fle71} for each individual
+property of an annotation separately with respect to being consistently
+assigned or non-assigned to the identified events (Table \ref{tab:validation}).
+We observe increasing inter-observer agreement of all annotated properties with
+increasing agreement of annotation timing, approaching ``substantial'' or
+``almost perfect'' agreement — according to the conventions put forth by
+\cite{LK77}.
+
+\begin{table*}
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule\\
+    & \multicolumn{3}{c}{\textbf{Event location min. agreement}} \\
+    & \textbf{33\%} & \textbf{66\%} & \textbf{100\%} \\
+    \\\midrule\\
+    Number of events & \AggTwentyNEvents & \AggSixtyNEvents & \AggHundredNEvents \\
+    Mean event duration (s) & \AggTwentyMeanEventDuration & \AggSixtyMeanEventDuration & \AggHundredMeanEventDuration \\
+    Mean event distance (s) & \AggTwentyMeanEventDistance & \AggSixtyMeanEventDistance & \AggHundredMeanEventDistance \\
+    \\\midrule\\
+    \multicolumn{4}{l}{\textit{Event types}}\\
+    \multicolumn{4}{l}{\small[majority vote counts and inter-observer agreement (Fleiss' Kappa)]}\\\\
+    Contradiction & \AggTwentyNContradiction\ (\AggTwentyFKContradiction) & \AggSixtyNContradiction\ (\AggSixtyFKContradiction) & \AggHundredNContradiction\ (\AggHundredFKContradiction)\\
+    Irony & \AggTwentyNIrony\ (\AggTwentyFKIrony) & \AggSixtyNIrony\ (\AggSixtyFKIrony) & \AggHundredNIrony\ (\AggHundredFKIrony)\\
+    Lie & \AggTwentyNLie\ (\AggTwentyFKLie) & \AggSixtyNLie\ (\AggSixtyFKLie) & \AggHundredNLie\ (\AggHundredFKLie)\\
+    \\\midrule\\
+    \multicolumn{4}{l}{\textit{Contradiction evidence}}\\
+    \multicolumn{4}{l}{\small[majority vote counts and inter-observer agreement (Fleiss' Kappa)]}\\\\
+    Immediate context & \AggTwentyNProofImmediate\ (\AggTwentyFKProofImmediate) & \AggSixtyNProofImmediate\ (\AggSixtyFKProofImmediate) & \AggHundredNProofImmediate\ (\AggHundredFKProofImmediate)\\
+    Memory & \AggTwentyNProofPast\ (\AggTwentyFKProofPast) & \AggSixtyNProofPast\ (\AggSixtyFKProofPast) & \AggHundredNProofPast\ (\AggHundredFKProofPast)\\
+    \\\midrule\\
+    \multicolumn{4}{l}{\textit{Cue type occurrences}}\\
+    \multicolumn{4}{l}{\small[majority vote counts and inter-observer agreement (Fleiss' Kappa)]}\\\\
+    Rhetorical question & \AggTwentyNCueRHETORICALQ\ (\AggTwentyFKCueRHETORICALQ) & \AggSixtyNCueRHETORICALQ\ (\AggSixtyFKCueRHETORICALQ) & \AggHundredNCueRHETORICALQ\ (\AggHundredFKCueRHETORICALQ)\\
+    Understatement
+    & \AggTwentyNCueUNDERSTATEMENT\ (\AggTwentyFKCueUNDERSTATEMENT) & \AggSixtyNCueUNDERSTATEMENT\ (\AggSixtyFKCueUNDERSTATEMENT) & \AggHundredNCueUNDERSTATEMENT\ (\AggHundredFKCueUNDERSTATEMENT)\\
+    Exaggeration
+    & \AggTwentyNCueEXAGGERATION\ (\AggTwentyFKCueEXAGGERATION) & \AggSixtyNCueEXAGGERATION\ (\AggSixtyFKCueEXAGGERATION) & \AggHundredNCueEXAGGERATION\ (\AggHundredFKCueEXAGGERATION)\\
+    Laughter
+    & \AggTwentyNCueLAUGH\ (\AggTwentyFKCueLAUGH) & \AggSixtyNCueLAUGH\ (\AggSixtyFKCueLAUGH) & \AggHundredNCueLAUGH\ (\AggHundredFKCueLAUGH)\\
+    Raised eyebrow
+    & \AggTwentyNCueRAISEDEYEBROW\ (\AggTwentyFKCueRAISEDEYEBROW) & \AggSixtyNCueRAISEDEYEBROW\ (\AggSixtyFKCueRAISEDEYEBROW) & \AggHundredNCueRAISEDEYEBROW\ (\AggHundredFKCueRAISEDEYEBROW)\\
+    Eye rolling
+    & \AggTwentyNCueEYEROLLING\ (\AggTwentyFKCueEYEROLLING) & \AggSixtyNCueEYEROLLING\ (\AggSixtyFKCueEYEROLLING) & \AggHundredNCueEYEROLLING\ (\AggHundredFKCueEYEROLLING)\\
+    Tempo change
+    & \AggTwentyNCueTEMPOCHANGE\ (\AggTwentyFKCueTEMPOCHANGE) & \AggSixtyNCueTEMPOCHANGE\ (\AggSixtyFKCueTEMPOCHANGE) & \AggHundredNCueTEMPOCHANGE\ (\AggHundredFKCueTEMPOCHANGE)\\
+    Tone change
+    & \AggTwentyNCueTONECHANGE\ (\AggTwentyFKCueTONECHANGE) & \AggSixtyNCueTONECHANGE\ (\AggSixtyFKCueTONECHANGE) & \AggHundredNCueTONECHANGE\ (\AggHundredFKCueTONECHANGE)\\
+    Pause
+    & \AggTwentyNCuePAUSE\ (\AggTwentyFKCuePAUSE) & \AggSixtyNCuePAUSE\ (\AggSixtyFKCuePAUSE) & \AggHundredNCuePAUSE\ (\AggHundredFKCuePAUSE)\\
+    \\\bottomrule
+  \end{tabular}
+
+  \caption{
+    %
+    Annotation inter-observer agreement statistics. Number of events and
+    categorization agreement are presented for three levels
+    of inter-observer agreement on the temporal location and the performing
+    movie character. The number of events for any particular event property
+    are determined by majority vote across observers, i.e. an event is counted
+    when more observers indicate the presence of a property than its absence.
+    Exhaustive technical detail on the statistical analysis can be found in the
+    \texttt{descriptive\_stats.py} Python script.
+    %
+  }
+
+  \label{tab:validation}
+\end{table*}
+
+
+
+\section*{Data and software availability}
+
+\texttt{This section will be auto-generated.}
+
+In addition, released data, code, and manuscript sources are also available on
+Github
+(\url{https://github.com/psychoinformatics-de/studyforrest-paper-ironyannotation}).
+
+
+\section*{Author contributions}
+%In order to give appropriate credit to each author of an article, the
+%individual contributions of each author to the manuscript should be detailed
+%in this section. We recommend using author initials and then stating briefly
+%how they contributed.
+
+MH contributed to the design of the annotation effort, performed the dataset
+validation, and wrote the paper; PI contributed to the design, coordinated the
+annotation effort, and wrote the paper.
+
+\section*{Competing Interests}
+No competing interests were disclosed.
+
+\section*{Grant Information}
+
+Michael Hanke was supported by funds from the German federal state of
+Saxony-Anhalt and the European Regional Development Fund (ERDF), Project:
+Center for Behavioral Brain Sciences.
+
+\section*{Acknowledgements}
+%This section should acknowledge anyone who contributed to the research or the
+%article but who does not qualify as an author based on the criteria provided
+%earlier (e.g. someone or an organisation that provided writing assistance).
+%Please state how they contributed; authors should obtain permission to
+%acknowledge from all those mentioned in the Acknowledgements section.  Please
+%do not list grant funding in this section (this should be included in the
+%Grant information section - See above).
+
+We are grateful to Denise Naumann, Marisela Markarian, Jasmin Billowie, and
+Susann Bergmann for their contributions to the design and the execution of the
+annotation effort. We also appreciate Alex Waite for his seemingly unending
+willingness to edit papers.
+
+
+%\nocite{*}
+{\small\bibliographystyle{unsrt}
+\bibliography{references}}
+
+\end{document}

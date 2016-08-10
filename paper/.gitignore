@@ -1,0 +1,11 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fff
+*.lof
+p.pdf
+*-stamp
+*.ttt
+*.lot
